@@ -2,12 +2,11 @@ package tellabsxcomtelindo.android.klikcoaching.utils
 
 import android.graphics.Rect
 import android.view.View
-import androidx.core.view.marginLeft
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import kotlin.math.absoluteValue
 
-class RvHorizontalItemDecoration : RecyclerView.ItemDecoration() {
+
+class rvGridDecortion() : RecyclerView.ItemDecoration() {
 
     override fun getItemOffsets(
         outRect: Rect,
@@ -16,14 +15,19 @@ class RvHorizontalItemDecoration : RecyclerView.ItemDecoration() {
         state: RecyclerView.State
     ) {
         super.getItemOffsets(outRect, view, parent, state)
-        val position = parent.getChildAdapterPosition(view)
-        outRect.top = 16
-        if ( position== parent.adapter!!.itemCount - 1) {
+        val manager = parent.layoutManager as GridLayoutManager?
+        outRect.left = 32
+        outRect.bottom = 0
+        outRect.top = 0
+        if (parent.getChildAdapterPosition(view)<manager!!.spanCount){
+            outRect.top = 16
+        }
+        if (parent.getChildAdapterPosition(view)%2==1){
             outRect.right = 32
+            outRect.left= 0
         }
-        if(position == 0){
-            outRect.left = 32
-        }
+
+
     }
 
 }

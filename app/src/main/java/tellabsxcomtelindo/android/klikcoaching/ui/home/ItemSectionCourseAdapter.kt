@@ -8,19 +8,25 @@ import com.xwray.groupie.kotlinandroidextensions.Item
 import kotlinx.android.synthetic.main.item_section_recomended_for_you.view.*
 import tellabsxcomtelindo.android.klikcoaching.R
 import tellabsxcomtelindo.android.klikcoaching.utils.RvHorizontalItemDecoration
+import tellabsxcomtelindo.android.klikcoaching.utils.rvGridDecortion
 
-class ItemSectionCourseAdapter(val groupAdapter: GroupAdapter<GroupieViewHolder>, val title : String,val isGridLayout : Boolean, val showAllListener:()->Unit): Item(){
+class ItemSectionCourseAdapter(
+    val groupAdapter: GroupAdapter<GroupieViewHolder>,
+    val title: String,
+    val isGridLayout: Boolean,
+    val showAllListener: () -> Unit
+) : Item() {
     override fun bind(viewHolder: GroupieViewHolder, position: Int) {
         viewHolder.itemView.apply {
             tvTitleRecomended.text = title
 
             rvRecomendedCourse.apply {
                 adapter = groupAdapter
-                addItemDecoration(RvHorizontalItemDecoration())
-                layoutManager = if (!isGridLayout){
-                    LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL,false)
-                }else{
-                    GridLayoutManager(context,2)
+                if (!isGridLayout) addItemDecoration(RvHorizontalItemDecoration()) else addItemDecoration(rvGridDecortion())
+                layoutManager = if (!isGridLayout) {
+                    LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+                } else {
+                    GridLayoutManager(context, 2)
                 }
             }
 
@@ -31,5 +37,5 @@ class ItemSectionCourseAdapter(val groupAdapter: GroupAdapter<GroupieViewHolder>
         }
     }
 
-    override fun getLayout()= R.layout.item_section_recomended_for_you
+    override fun getLayout() = R.layout.item_section_recomended_for_you
 }

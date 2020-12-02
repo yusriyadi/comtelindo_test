@@ -4,5 +4,5 @@ import android.widget.ImageView
 import com.bumptech.glide.Glide
 
 fun ImageView.loadImageFromDrawable(source : Int){
-    Glide.with(this).load(source).into(this)
+    Glide.with(this).load(source).centerCrop().into(this)
 }

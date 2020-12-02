@@ -10,12 +10,13 @@ import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.Section
 import com.xwray.groupie.kotlinandroidextensions.GroupieViewHolder
 import kotlinx.android.synthetic.main.fragment_home.*
-import kotlinx.android.synthetic.main.item_section_recomended_for_you.*
 import tellabsxcomtelindo.android.klikcoaching.R
-import tellabsxcomtelindo.android.klikcoaching.data.HomeResponse
-import tellabsxcomtelindo.android.klikcoaching.data.musicCategory1
+import tellabsxcomtelindo.android.klikcoaching.data.*
+import tellabsxcomtelindo.android.klikcoaching.utils.DUmmyData.coursesRecomeded
+import tellabsxcomtelindo.android.klikcoaching.utils.DUmmyData.newComerCource
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
+
 
     private val mainGroupAdapter = GroupAdapter<GroupieViewHolder>()
     private val groupAdapterRecomendedForyou = GroupAdapter<GroupieViewHolder>()
@@ -25,11 +26,22 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        musicCategory1.courses.forEach {
+
+        coursesRecomeded.forEach {
             groupAdapterRecomendedForyou.add(ItemCourseAdapter(it) {
                 Toast.makeText(context, it.title, Toast.LENGTH_SHORT).show()
             })
         }
+
+        newComerCource.forEach {
+            groupAdapterTerbaru.add(ItemCourseAdapter(it) {
+                Toast.makeText(context, it.title, Toast.LENGTH_SHORT).show()
+            })
+        }
+
+
+
+
         mainGroupAdapter.add(Section(ItemBannerAdaper()))
         mainGroupAdapter.add(
             Section(
@@ -42,6 +54,16 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 })
         )
 
+        mainGroupAdapter.add(
+            Section(
+                ItemSectionCourseAdapter(
+                    groupAdapterTerbaru,
+                    "Materi Seminar baru!",
+                    true
+                ) {
+                    Toast.makeText(context, "lihat semua", Toast.LENGTH_SHORT).show()
+                })
+        )
 
 
         rvHomeFrag.apply {
@@ -49,6 +71,8 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             layoutManager = LinearLayoutManager(context)
         }
     }
+
+
 
     companion object {
         @JvmStatic

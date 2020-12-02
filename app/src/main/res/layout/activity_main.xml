@@ -17,7 +17,24 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:menu="@menu/menu_action" />
+        app:menu="@menu/menu_action" >
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="200dp"
+                android:layout_height="?attr/actionBarSize"
+                android:contentDescription="TODO"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:scaleType="fitStart"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_logo_white_text" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.appcompat.widget.Toolbar>
 
     <tellabsxcomtelindo.android.klikcoaching.utils.MyViewPager
         android:id="@+id/viewPager"
@@ -40,17 +57,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/bottom_nav_menu" />
 
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="200dp"
-        android:layout_height="?attr/actionBarSize"
-        android:layout_marginStart="16dp"
-        android:contentDescription="TODO"
-        android:paddingTop="8dp"
-        android:paddingBottom="8dp"
-        android:scaleType="fitStart"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_logo_white_text" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

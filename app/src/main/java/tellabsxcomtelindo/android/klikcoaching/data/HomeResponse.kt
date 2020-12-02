@@ -15,7 +15,7 @@ data class Courses(
     val rating: Double,
     val description: String,
     val price: Double,
-    val imageBanner : Int,
+    val imageBanner: Int,
     val duration: String,
     val courseTopic: List<CourseTopic>
 )
@@ -44,6 +44,7 @@ val fingerStyleSecondTopic = CourseTopic(
     listOf("Teknik Dasar 1", "Teknik Dasar 2", "Teknik Dasar 3")
 )
 
+
 val musicCategory1 = Category(
     "Music", listOf<Courses>(
         Courses(
@@ -67,7 +68,21 @@ val musicCategory1 = Category(
             4.8,
             "ini merupakan deskripsis penjelasann dari setipa topik pembelajaran",
             120000.0,
-            R.drawable.img_fingerstyle,
+            R.drawable.img_car_engine,
+            "3 jam 20 menit",
+            listOf(
+                fingerStyleFirstTopic,
+                fingerStyleSecondTopic
+            )
+        ),
+        Courses(
+            1,
+            "The Best Beginer FingerStyle Guitar Lesson",
+            udinAuthor,
+            4.8,
+            "ini merupakan deskripsis penjelasann dari setipa topik pembelajaran",
+            120000.0,
+            R.drawable.img_coding,
             "3 jam 20 menit",
             listOf(
                 fingerStyleFirstTopic,
