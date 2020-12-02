@@ -18,6 +18,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import kotlinx.android.synthetic.main.activity_login.*
 import tellabsxcomtelindo.android.klikcoaching.R
+import tellabsxcomtelindo.android.klikcoaching.ui.home.MainActivity
 import tellabsxcomtelindo.android.klikcoaching.ui.register.RegisterActivity
 
 val isShowsClicked = MutableLiveData<Boolean>(false)
@@ -38,6 +39,12 @@ class LoginActivity : AppCompatActivity() {
         }
         setSpannableText()
 
+
+        btnLogin.setOnClickListener {
+            Intent(this,MainActivity::class.java).apply {
+                startActivity(this)
+            }
+        }
 
     }
 
@@ -77,5 +84,11 @@ class LoginActivity : AppCompatActivity() {
                 statusBarColor = Color.TRANSPARENT
             }
         }
+    }
+
+    override fun onResume() {
+        isShowsClicked.value = false
+        super.onResume()
+
     }
 }
