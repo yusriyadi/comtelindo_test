@@ -1,10 +1,12 @@
 package tellabsxcomtelindo.android.klikcoaching.ui.home
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.gson.Gson
 import com.xwray.groupie.GroupAdapter
 
 import com.xwray.groupie.Section
@@ -12,6 +14,7 @@ import com.xwray.groupie.kotlinandroidextensions.GroupieViewHolder
 import kotlinx.android.synthetic.main.fragment_home.*
 import tellabsxcomtelindo.android.klikcoaching.R
 import tellabsxcomtelindo.android.klikcoaching.data.*
+import tellabsxcomtelindo.android.klikcoaching.ui.coursedetail.CourseDetailActivity
 import tellabsxcomtelindo.android.klikcoaching.utils.DUmmyData.coursesRecomeded
 import tellabsxcomtelindo.android.klikcoaching.utils.DUmmyData.newComerCource
 
@@ -29,18 +32,21 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
         coursesRecomeded.forEach {
             groupAdapterRecomendedForyou.add(ItemCourseAdapter(it) {
-                Toast.makeText(context, it.title, Toast.LENGTH_SHORT).show()
+                Intent(requireContext(), CourseDetailActivity::class.java).apply {
+                    putExtra("course", Gson().toJson(it))
+                    startActivity(this)
+                }
             })
         }
 
         newComerCource.forEach {
             groupAdapterTerbaru.add(ItemCourseAdapter(it) {
-                Toast.makeText(context, it.title, Toast.LENGTH_SHORT).show()
+                Intent(requireContext(), CourseDetailActivity::class.java).apply {
+                    putExtra("course", Gson().toJson(it))
+                    startActivity(this)
+                }
             })
         }
-
-
-
 
         mainGroupAdapter.add(Section(ItemBannerAdaper()))
         mainGroupAdapter.add(

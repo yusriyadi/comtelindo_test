@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DetailCategoryActivity">
+    tools:context=".ui.detailcategory.DetailCategoryActivity">
 
     <ImageView
-        android:id="@+id/imageView10"
+        android:id="@+id/ivBannerCategory"
         android:layout_width="wrap_content"
         android:layout_height="200dp"
         android:scaleType="centerCrop"
@@ -21,37 +21,37 @@
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:background="#70000000"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView10"
+        app:layout_constraintBottom_toBottomOf="@+id/ivBannerCategory"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView9"
+        android:id="@+id/btnBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView5"
+        app:layout_constraintBottom_toBottomOf="@+id/tvTitleCategory"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView5"
+        app:layout_constraintTop_toTopOf="@+id/tvTitleCategory"
         app:srcCompat="@drawable/ic_baseline_arrow_back_24" />
 
     <View
         android:id="@+id/view3"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="40dp"
         android:background="@drawable/drawable_right_form"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/imageView10"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+        app:layout_constraintStart_toStartOf="@+id/ivBannerCategory"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitleCategory" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/tvTitleCategory"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="40dp"
         android:text="Title"
         android:textColor="@color/white"
         android:textSize="18sp"
@@ -69,5 +69,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/view3" />
+        app:layout_constraintTop_toTopOf="@+id/view3"
+        tools:itemCount="3"
+        tools:listitem="@layout/item_row_course_vertical" />
 </androidx.constraintlayout.widget.ConstraintLayout>

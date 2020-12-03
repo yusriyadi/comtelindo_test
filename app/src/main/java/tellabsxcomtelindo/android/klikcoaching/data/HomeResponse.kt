@@ -17,13 +17,16 @@ data class Courses(
     val price: Double,
     val imageBanner: Int,
     val duration: String,
-    val courseTopic: List<CourseTopic>
+    val courseTopic: List<CourseTopic>,
+    val isWebBinar: Boolean = false,
+    val webBinarUrl : String = ""
 )
 
 data class CourseTopic(
     val courseSection: String,
     val subCourseSection: List<String>
 )
+
 
 data class Author(
     val name: String? = "udin",
@@ -36,7 +39,7 @@ val udinAuthor = Author("udin")
 val homeResponse = HomeResponse(listOf<Category>())
 
 val fingerStyleFirstTopic = CourseTopic(
-    "Pembelajaran Dasar | 3 Mater",
+    "Pembelajaran Dasar | 3 Materi",
     listOf("Pembelajran Dasar 1", "Pembelajran Dasar 2", "Pembelajran Dasar 3")
 )
 val fingerStyleSecondTopic = CourseTopic(

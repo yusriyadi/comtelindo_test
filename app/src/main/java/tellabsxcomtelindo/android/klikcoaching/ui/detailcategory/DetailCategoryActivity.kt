@@ -1,5 +1,6 @@
-package tellabsxcomtelindo.android.klikcoaching
+package tellabsxcomtelindo.android.klikcoaching.ui.detailcategory
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
@@ -7,60 +8,49 @@ import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.gson.Gson
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
-import com.xwray.groupie.Item
 import kotlinx.android.synthetic.main.activity_detail_category.*
-import kotlinx.android.synthetic.main.fragment_categories.*
-import tellabsxcomtelindo.android.klikcoaching.ui.ItemDetailCategoryAdapter
+import tellabsxcomtelindo.android.klikcoaching.R
+import tellabsxcomtelindo.android.klikcoaching.ui.coursedetail.CourseDetailActivity
 import tellabsxcomtelindo.android.klikcoaching.utils.DUmmyData
+import tellabsxcomtelindo.android.klikcoaching.utils.loadImageFromDrawable
 
 
-data class ItemMenu(val judul: String, val time: String, val img: Int)
+data class ItemMenu(val id : Int,val judul: String, val time: String, val img: Int)
 
 class DetailCategoryActivity : AppCompatActivity() {
     val groupAdapter = GroupAdapter<GroupieViewHolder>()
-
-    val listMenu = listOf<ItemMenu>(
-        ItemMenu(
-            "The Best Beginner Fingerstyle Guitar Lesson",
-            "11m remaining",
-            DUmmyData.mutableListImage[1]
-        ),
-        ItemMenu(
-            "The Best Beginner Fingerstyle Guitar Lesson",
-            "11m remaining",
-            DUmmyData.mutableListImage[2]
-        ),
-        ItemMenu(
-            "The Best Beginner Fingerstyle Guitar Lesson",
-            "11m remaining",
-            DUmmyData.mutableListImage[3]
-        ),
-        ItemMenu(
-            "The Best Beginner Fingerstyle Guitar Lesson",
-            "11m remaining",
-            DUmmyData.mutableListImage[4]
-        ),
-        ItemMenu(
-            "The Best Beginner Fingerstyle Guitar Lesson",
-            "11m remaining",
-            DUmmyData.mutableListImage[5]
-        )
-    )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_category)
         setFullscreen()
 
-        listMenu.forEach {
+        val img = intent.getIntExtra("img", 0)
+        val text = intent.getStringExtra("title")
+
+        ivBannerCategory.loadImageFromDrawable(img)
+        tvTitleCategory.text = text
+
+        btnBack.setOnClickListener {
+            onBackPressed()
+        }
+
+
+        DUmmyData.completeCourse.forEach {
             groupAdapter.add(
-                ItemDetailCategoryAdapter(it) {
+                ItemDetailCategoryAdapter(
+                    it
+                ) {
+                    Intent(this, CourseDetailActivity::class.java).apply {
+                        putExtra("course", Gson().toJson(it))
+                        startActivity(this)
+                    }
                 }
             )
         }
-
 
         rvCategoryDetail.apply {
             adapter = groupAdapter

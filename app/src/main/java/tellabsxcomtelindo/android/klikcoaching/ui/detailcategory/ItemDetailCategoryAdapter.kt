@@ -1,21 +1,23 @@
-package tellabsxcomtelindo.android.klikcoaching.ui
+package tellabsxcomtelindo.android.klikcoaching.ui.detailcategory
 
+import android.view.View
 import com.xwray.groupie.kotlinandroidextensions.GroupieViewHolder
 import com.xwray.groupie.kotlinandroidextensions.Item
 import kotlinx.android.synthetic.main.item_row_course_vertical.view.*
-import kotlinx.android.synthetic.main.item_row_grid.view.*
-import tellabsxcomtelindo.android.klikcoaching.ItemMenu
 import tellabsxcomtelindo.android.klikcoaching.R
+import tellabsxcomtelindo.android.klikcoaching.data.Courses
 import tellabsxcomtelindo.android.klikcoaching.utils.loadImageFromDrawable
 
-class ItemDetailCategoryAdapter(val item : ItemMenu, val click: (String) -> Unit) : Item() {
+    class ItemDetailCategoryAdapter(val item : Courses, val click: (Courses) -> Unit) : Item() {
     override fun bind(viewHolder: GroupieViewHolder, position: Int) {
         viewHolder.itemView.setOnClickListener {
-            click(item.judul)
+            click(item)
         }
         viewHolder.itemView.apply {
-            tvTitle.text = item.judul
-            tvTime.text = item.time
+            if(item.isWebBinar) webinar.visibility = View.VISIBLE
+            tvTitle.text = item.title
+            tvTime.text = item.duration
+            ivImage.loadImageFromDrawable(item.imageBanner)
         }
     }
 

@@ -6,6 +6,10 @@ import tellabsxcomtelindo.android.klikcoaching.data.*
 object DUmmyData {
     val coursesRecomeded = mutableListOf<Courses>()
     val newComerCource = mutableListOf<Courses>()
+    val completeCourse = mutableListOf<Courses>()
+
+    val category = mutableListOf<String>("Music","Design", "Programming","Automotive","Mechanical","finance")
+
     val courseTitle = mutableListOf<String>(
         "Quicstart Acoustic Guitar",
         "Acounting 101",
@@ -49,6 +53,27 @@ object DUmmyData {
     }
 
     fun generateData() {
+        for (i in 0..9){
+            completeCourse.add(
+                Courses(
+                    i,
+                    courseTitle[i],
+                    author[i],
+                    4.8,
+                    "ini merupakan deskripsi penjelasan dari setiap topik pembelajaran. Usahakan selalu lengkapi deskripsi ini. Tidak perlu panjang, yang penting padat, bermakana, tepat sasaran, jelas dan lugas",
+                    (1..3).random().toDouble()*100000.0,
+                    mutableListImage[i],
+                    (0..2).random().toString()+" jam 20 menit",
+                    listOf(
+                        fingerStyleFirstTopic,
+                        fingerStyleSecondTopic
+                    ),
+                    i >=5,
+                    ""
+                )
+            )
+        }
+
         for (i in 0..4) {
             coursesRecomeded.add(
                 Courses(
@@ -56,14 +81,16 @@ object DUmmyData {
                     courseTitle[i],
                     author[i],
                     4.8,
-                    "ini merupakan deskripsis penjelasann dari setipa topik pembelajaran",
-                    120000.0,
+                    "ini merupakan deskripsi penjelasan dari setiap topik pembelajaran. Usahakan selalu lengkapi deskripsi ini. Tidak perlu panjang, yang penting padat, bermakana, tepat sasaran, jelas dan lugas",
+                    (1..3).random().toDouble()*100000.0,
                     mutableListImage[i],
-                    "3 jam 20 menit",
+                    (0..2).random().toString()+" jam 20 menit",
                     listOf(
                         fingerStyleFirstTopic,
                         fingerStyleSecondTopic
-                    )
+                    ),
+                    false,
+                    ""
                 )
             )
         }
@@ -75,14 +102,16 @@ object DUmmyData {
                     courseTitle[i],
                     author[i],
                     4.8,
-                    "ini merupakan deskripsis penjelasann dari setipa topik pembelajaran",
-                    120000.0,
+                    "ini merupakan deskripsi penjelasan dari setiap topik pembelajaran. Usahakan selalu lengkapi deskripsi ini. Tidak perlu panjang, yang penting padat, bermakana, tepat sasaran, jelas dan lugas",
+                    (1..3).random().toDouble()*100000.0,
                     mutableListImage[i],
-                    "3 jam 20 menit",
+                    (0..2).random().toString()+" jam 20 menit",
                     listOf(
                         fingerStyleFirstTopic,
                         fingerStyleSecondTopic
-                    )
+                    ),
+                    true,
+                    ""
                 )
             )
         }

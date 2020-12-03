@@ -9,8 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Klikcoaching">
-        <activity android:name=".DetailCategoryActivity"></activity>
-        <activity android:name=".ui.detailcategory.DetailActivityMainActivity"></activity>
+        <activity android:name=".ui.profile.ProfileActivity"></activity>
+        <activity android:name=".ui.coursedetail.CourseDetailActivity" />
+        <activity android:name=".ui.detailcategory.DetailCategoryActivity" />
         <activity android:name=".ui.register.RegisterActivity" />
         <activity android:name=".ui.login.LoginActivity">
             <intent-filter>
