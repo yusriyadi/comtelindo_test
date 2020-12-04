@@ -3,12 +3,15 @@
     package="tellabsxcomtelindo.android.klikcoaching">
 
     <application
+        android:name=".App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Klikcoaching">
+        <activity android:name=".ui.pilihpembayaran.ChoosePaymentActivity"></activity>
+        <activity android:name=".ui.notifikasi.NotifikasiActivity"></activity>
         <activity android:name=".ui.profile.ProfileActivity"></activity>
         <activity android:name=".ui.coursedetail.CourseDetailActivity" />
         <activity android:name=".ui.detailcategory.DetailCategoryActivity" />

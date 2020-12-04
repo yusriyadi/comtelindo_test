@@ -1,4 +1,4 @@
-
+package tellabsxcomtelindo.android.klikcoaching.data
 import android.content.Context
 import com.github.ajalt.timberkt.d
 
@@ -7,6 +7,8 @@ class PreferencesHelper(val context: Context){
     companion object {
         private val PREF_NAME = "klikcoaching_app"
         val ACCESS_TOKEN_KEY =  "access_token"
+        val CHOOSEN_RADIO_ID = "choosen_radio_id"
+        val CHOOSEN_RADIO_TEXT = "choosen_radio_text"
     }
 
     private var sharedPref = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)

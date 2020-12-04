@@ -8,7 +8,7 @@
     tools:context=".ui.profile.ProfileActivity">
 
     <ImageView
-        android:id="@+id/imageView15"
+        android:id="@+id/btnBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -25,10 +25,10 @@
         android:textColor="@color/white"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView15"
+        app:layout_constraintBottom_toBottomOf="@+id/btnBack"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView15"
+        app:layout_constraintTop_toTopOf="@+id/btnBack"
         app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
@@ -132,7 +132,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView25" />
 
     <TextView
-        android:id="@+id/textView27"
+        android:id="@+id/tvLabelQuality"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -153,13 +153,13 @@
         app:layout_constraintTop_toBottomOf="@+id/textView23" />
 
     <TextView
-        android:id="@+id/textView28"
+        android:id="@+id/tvChoosenQuality"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="360p"
         android:textSize="12sp"
         app:layout_constraintStart_toStartOf="@+id/textView23"
-        app:layout_constraintTop_toBottomOf="@+id/textView27" />
+        app:layout_constraintTop_toBottomOf="@+id/tvLabelQuality" />
 
     <TextView
         android:id="@+id/textView29"
@@ -169,7 +169,7 @@
         android:text="Notifikasi"
         android:textSize="12sp"
         app:layout_constraintStart_toStartOf="@+id/textView23"
-        app:layout_constraintTop_toBottomOf="@+id/textView28" />
+        app:layout_constraintTop_toBottomOf="@+id/tvChoosenQuality" />
 
     <TextView
         android:id="@+id/textView33"
@@ -239,4 +239,10 @@
         app:layout_constraintBottom_toBottomOf="@+id/textView31"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textView30" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/btn_video_quality"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="tvChoosenQuality,tvLabelQuality" />
 </androidx.constraintlayout.widget.ConstraintLayout>
