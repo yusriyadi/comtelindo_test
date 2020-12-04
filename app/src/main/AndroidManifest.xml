@@ -10,9 +10,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Klikcoaching">
-        <activity android:name=".ui.pilihpembayaran.ChoosePaymentActivity"></activity>
-        <activity android:name=".ui.notifikasi.NotifikasiActivity"></activity>
-        <activity android:name=".ui.profile.ProfileActivity"></activity>
+        <activity
+            android:name=".ui.AddCommentActivity"
+            android:label="@string/title_activity_add_comment"
+            android:theme="@style/Theme.Klikcoaching.NoActionBar"></activity>
+        <activity android:name=".ui.paymentsuccess.PaymentSuccessfullyActivity" />
+        <activity android:name=".ui.pilihpembayaran.ChoosePaymentActivity" />
+        <activity android:name=".ui.notifikasi.NotifikasiActivity" />
+        <activity android:name=".ui.profile.ProfileActivity" />
         <activity android:name=".ui.coursedetail.CourseDetailActivity" />
         <activity android:name=".ui.detailcategory.DetailCategoryActivity" />
         <activity android:name=".ui.register.RegisterActivity" />

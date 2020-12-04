@@ -1,5 +1,6 @@
 package tellabsxcomtelindo.android.klikcoaching.ui.coursedetail
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
@@ -14,6 +15,7 @@ import kotlinx.android.synthetic.main.activity_detail_category.*
 import tellabsxcomtelindo.android.klikcoaching.R
 import tellabsxcomtelindo.android.klikcoaching.data.Courses
 import tellabsxcomtelindo.android.klikcoaching.ui.detailcategory.ItemMenu
+import tellabsxcomtelindo.android.klikcoaching.ui.paymentsuccess.PaymentSuccessfullyActivity
 import tellabsxcomtelindo.android.klikcoaching.utils.DUmmyData
 import tellabsxcomtelindo.android.klikcoaching.utils.ViewPagerAdapterTabs
 import tellabsxcomtelindo.android.klikcoaching.utils.loadImageFromDrawable
@@ -44,6 +46,12 @@ class CourseDetailActivity : AppCompatActivity() {
             onBackPressed()
         }
 
+
+        btnBeli.setOnClickListener {
+            Intent(this,PaymentSuccessfullyActivity::class.java).apply {
+                startActivity(this)
+            }
+        }
 
         vp_course.adapter = ViewPagerAdapterTabs(this)
         TabLayoutMediator(tabLayout2, vp_course) { tab, position ->
