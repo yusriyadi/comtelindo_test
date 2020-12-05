@@ -16,6 +16,7 @@ import tellabsxcomtelindo.android.klikcoaching.R
 import tellabsxcomtelindo.android.klikcoaching.data.Courses
 import tellabsxcomtelindo.android.klikcoaching.ui.detailcategory.ItemMenu
 import tellabsxcomtelindo.android.klikcoaching.ui.paymentsuccess.PaymentSuccessfullyActivity
+import tellabsxcomtelindo.android.klikcoaching.ui.pilihpembayaran.ChoosePaymentActivity
 import tellabsxcomtelindo.android.klikcoaching.utils.DUmmyData
 import tellabsxcomtelindo.android.klikcoaching.utils.ViewPagerAdapterTabs
 import tellabsxcomtelindo.android.klikcoaching.utils.loadImageFromDrawable
@@ -48,7 +49,7 @@ class CourseDetailActivity : AppCompatActivity() {
 
 
         btnBeli.setOnClickListener {
-            Intent(this,PaymentSuccessfullyActivity::class.java).apply {
+            Intent(this,ChoosePaymentActivity::class.java).apply {
                 startActivity(this)
             }
         }

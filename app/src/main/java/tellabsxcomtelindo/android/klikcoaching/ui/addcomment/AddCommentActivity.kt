@@ -1,4 +1,4 @@
-package tellabsxcomtelindo.android.klikcoaching.ui
+package tellabsxcomtelindo.android.klikcoaching.ui.addcomment
 
 import android.os.Bundle
 import com.google.android.material.floatingactionbutton.FloatingActionButton
