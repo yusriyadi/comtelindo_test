@@ -23,24 +23,30 @@ import tellabsxcomtelindo.android.klikcoaching.utils.loadImageFromDrawable
 
 class CourseDetailActivity : AppCompatActivity() {
     lateinit var idCourse: String
-    var isWebBinar: Boolean=false
+    var isWebBinar: Boolean = false
+    var isThisDay: Boolean = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_course_detail)
         setFullscreen()
         val course =
             Gson().fromJson(intent.getStringExtra("course"), Courses::class.java)
+        isThisDay = intent.getBooleanExtra("isThisDay", false)
 
         idCourse = course.id.toString()
-        isWebBinar =course.isWebBinar
-        tvAuthorCourse.text = DUmmyData.author[course.id].name
+        isWebBinar = course.isWebBinar
+        tvAuthorCourse.text = "dibuat oleh : "+DUmmyData.author[course.id].name
         tvCourseTitle.text = course.title
         tvRate.text = (2..5).random().toString()
         ivCourse.loadImageFromDrawable(course.imageBanner)
 
-        if(isWebBinar){
+        if (isWebBinar) {
             fabPlayWebbinar.loadImageFromDrawable(R.drawable.ic_video)
             tvPrakerjaLabel.visibility = View.GONE
+            if (isThisDay) {
+                btnBeli.text = "Join Sekarang"
+                btnBeli.isEnabled = false
+            }
         }
 
         btnBack.setOnClickListener {
@@ -49,9 +55,7 @@ class CourseDetailActivity : AppCompatActivity() {
 
 
         btnBeli.setOnClickListener {
-            Intent(this,ChoosePaymentActivity::class.java).apply {
-                startActivity(this)
-            }
+           if(!isWebBinar) Intent(this, ChoosePaymentActivity::class.java).apply { startActivity(this) }
         }
 
         vp_course.adapter = ViewPagerAdapterTabs(this)

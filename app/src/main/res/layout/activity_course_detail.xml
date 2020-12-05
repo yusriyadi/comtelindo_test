@@ -138,48 +138,67 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="76dp"
-        android:layout_marginEnd="16dp"
+        android:background="#37000000"
+        android:paddingLeft="16dp"
+        android:paddingTop="2dp"
         android:paddingRight="32dp"
+        android:paddingBottom="2dp"
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/btnBack"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnBack"
         tools:text="Guitar Lesson : Beginner Acoustic Guitar Lesson 1" />
 
+    <View
+        android:id="@+id/view6"
+        android:layout_width="0dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="4dp"
+        android:background="#45040303"
+        app:layout_constraintEnd_toEndOf="@+id/tvAuthorCourse"
+        app:layout_constraintStart_toStartOf="@+id/imageView11"
+        app:layout_constraintTop_toBottomOf="@+id/tvCourseTitle" />
+
+    <TextView
+        android:id="@+id/tvAuthorCourse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:padding="2dp"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/view6"
+        app:layout_constraintStart_toEndOf="@+id/tvRate"
+        app:layout_constraintTop_toTopOf="@+id/view6"
+        tools:text="Dibuat oleh hans marvel" />
+
     <ImageView
         android:id="@+id/imageView11"
-        android:layout_width="15dp"
-        android:layout_height="15dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="16dp"
+        android:padding="4dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvRate"
         app:layout_constraintStart_toStartOf="@+id/tvCourseTitle"
-        app:layout_constraintTop_toBottomOf="@+id/tvCourseTitle"
+        app:layout_constraintTop_toTopOf="@+id/tvRate"
         app:srcCompat="@drawable/ic_baseline_star_24" />
 
     <TextView
         android:id="@+id/tvRate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:padding="2dp"
         android:textColor="@color/white"
         android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView11"
+        app:layout_constraintBottom_toBottomOf="@+id/tvAuthorCourse"
         app:layout_constraintStart_toEndOf="@+id/imageView11"
-        app:layout_constraintTop_toTopOf="@+id/imageView11"
+        app:layout_constraintTop_toTopOf="@+id/tvAuthorCourse"
+        app:layout_constraintVertical_bias="1.0"
         tools:text="4.5" />
-
-    <TextView
-        android:id="@+id/tvAuthorCourse"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:textColor="@color/white"
-        android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView11"
-        app:layout_constraintStart_toEndOf="@+id/tvRate"
-        app:layout_constraintTop_toTopOf="@+id/imageView11"
-        tools:text="Dibuat oleh hans marvel" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabPlayWebbinar"

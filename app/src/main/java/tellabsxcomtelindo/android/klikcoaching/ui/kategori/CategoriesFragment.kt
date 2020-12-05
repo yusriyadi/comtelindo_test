@@ -11,6 +11,7 @@ import com.xwray.groupie.GroupieViewHolder
 import kotlinx.android.synthetic.main.fragment_categories.*
 import tellabsxcomtelindo.android.klikcoaching.ui.detailcategory.DetailCategoryActivity
 import tellabsxcomtelindo.android.klikcoaching.R
+import tellabsxcomtelindo.android.klikcoaching.utils.DUmmyData.menusCategory
 import tellabsxcomtelindo.android.klikcoaching.utils.rvGridDecortion
 
 
@@ -19,14 +20,7 @@ class CategoriesFragment : Fragment(R.layout.fragment_categories) {
 
     val groupAdapter = GroupAdapter<GroupieViewHolder>()
 
-    val menusCategory = listOf<CategoryMenus>(
-        CategoryMenus(R.drawable.img_single_guitar, "Music"),
-        CategoryMenus(R.drawable.img_yellow_decoration, "Design"),
-        CategoryMenus(R.drawable.img_coding, "Programming"),
-        CategoryMenus(R.drawable.img_car_engine, "Automative"),
-        CategoryMenus(R.drawable.img_workshop, "Mechanical"),
-        CategoryMenus(R.drawable.img_calculator, "Finance")
-    )
+
 
 
 

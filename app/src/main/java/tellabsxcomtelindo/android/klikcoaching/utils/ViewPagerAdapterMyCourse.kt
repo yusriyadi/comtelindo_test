@@ -6,15 +6,17 @@ import androidx.fragment.app.FragmentManager
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import tellabsxcomtelindo.android.klikcoaching.ui.coursedetail.fargment.DesciptionFragment
 import tellabsxcomtelindo.android.klikcoaching.ui.coursedetail.fargment.UlasanFragment
+import tellabsxcomtelindo.android.klikcoaching.ui.mycourse.AllCourseFragment
+import tellabsxcomtelindo.android.klikcoaching.ui.mycourse.OfflineCourseFragment
 
-class ViewPagerAdapterTabsCourse(fm: FragmentActivity) : FragmentStateAdapter(fm) {
+class ViewPagerAdapterTabsCourse(fm: Fragment) : FragmentStateAdapter(fm) {
 
     override fun getItemCount(): Int =2
 
     override fun createFragment(position: Int): Fragment {
         return when(position){
-            0 ->  DesciptionFragment.newInstance()
-            else ->  UlasanFragment.newInstance()
+            0 ->  AllCourseFragment.newInstance()
+            else ->  OfflineCourseFragment.newInstance()
         }
     }
 }

@@ -9,9 +9,10 @@ import kotlinx.android.synthetic.main.item_section_author.view.*
 import kotlinx.android.synthetic.main.item_section_topic.view.*
 import tellabsxcomtelindo.android.klikcoaching.R
 
-class ItemAuthorSection() : Item() {
+class ItemAuthorSection(val author : String) : Item() {
     override fun bind(viewHolder: GroupieViewHolder, position: Int) {
         viewHolder.itemView.apply {
+            textView9.text = author
             Glide.with(imageView9).load(R.drawable.ic_baseline_supervised_user_circle_24).circleCrop().into(imageView9)
         }
     }

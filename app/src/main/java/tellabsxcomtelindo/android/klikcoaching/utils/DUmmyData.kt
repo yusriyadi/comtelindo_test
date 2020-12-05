@@ -2,6 +2,7 @@ package tellabsxcomtelindo.android.klikcoaching.utils
 
 import tellabsxcomtelindo.android.klikcoaching.R
 import tellabsxcomtelindo.android.klikcoaching.data.*
+import tellabsxcomtelindo.android.klikcoaching.ui.kategori.CategoryMenus
 
 object DUmmyData {
     val coursesRecomeded = mutableListOf<Courses>()
@@ -9,7 +10,14 @@ object DUmmyData {
     val completeCourse = mutableListOf<Courses>()
 
     val category = mutableListOf<String>("Music","Design", "Programming","Automotive","Mechanical","finance")
-
+    val menusCategory = listOf<CategoryMenus>(
+        CategoryMenus(R.drawable.img_single_guitar, "Music"),
+        CategoryMenus(R.drawable.img_yellow_decoration, "Design"),
+        CategoryMenus(R.drawable.img_coding, "Programming"),
+        CategoryMenus(R.drawable.img_car_engine, "Automative"),
+        CategoryMenus(R.drawable.img_workshop, "Mechanical"),
+        CategoryMenus(R.drawable.img_calculator, "Finance")
+    )
     val courseTitle = mutableListOf<String>(
         "Quicstart Acoustic Guitar",
         "Acounting 101",
