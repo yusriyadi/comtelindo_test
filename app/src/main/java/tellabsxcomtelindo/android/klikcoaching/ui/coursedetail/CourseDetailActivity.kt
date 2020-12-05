@@ -11,13 +11,10 @@ import com.google.android.material.tabs.TabLayoutMediator
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_course_detail.*
 import kotlinx.android.synthetic.main.activity_course_detail.btnBack
-import kotlinx.android.synthetic.main.activity_detail_category.*
 import tellabsxcomtelindo.android.klikcoaching.R
 import tellabsxcomtelindo.android.klikcoaching.data.Courses
-import tellabsxcomtelindo.android.klikcoaching.ui.detailcategory.ItemMenu
-import tellabsxcomtelindo.android.klikcoaching.ui.paymentsuccess.PaymentSuccessfullyActivity
 import tellabsxcomtelindo.android.klikcoaching.ui.pilihpembayaran.ChoosePaymentActivity
-import tellabsxcomtelindo.android.klikcoaching.utils.DUmmyData
+import tellabsxcomtelindo.android.klikcoaching.utils.DummyData
 import tellabsxcomtelindo.android.klikcoaching.utils.ViewPagerAdapterTabs
 import tellabsxcomtelindo.android.klikcoaching.utils.loadImageFromDrawable
 
@@ -35,7 +32,7 @@ class CourseDetailActivity : AppCompatActivity() {
 
         idCourse = course.id.toString()
         isWebBinar = course.isWebBinar
-        tvAuthorCourse.text = "dibuat oleh : "+DUmmyData.author[course.id].name
+        tvAuthorCourse.text = "dibuat oleh : "+DummyData.author[course.id].name
         tvCourseTitle.text = course.title
         tvRate.text = (2..5).random().toString()
         ivCourse.loadImageFromDrawable(course.imageBanner)
@@ -55,7 +52,7 @@ class CourseDetailActivity : AppCompatActivity() {
 
 
         btnBeli.setOnClickListener {
-           if(!isWebBinar) Intent(this, ChoosePaymentActivity::class.java).apply { startActivity(this) }
+           if(!isThisDay) Intent(this, ChoosePaymentActivity::class.java).apply { startActivity(this) }
         }
 
         vp_course.adapter = ViewPagerAdapterTabs(this)

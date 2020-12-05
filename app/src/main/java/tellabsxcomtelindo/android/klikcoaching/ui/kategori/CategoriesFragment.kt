@@ -11,7 +11,7 @@ import com.xwray.groupie.GroupieViewHolder
 import kotlinx.android.synthetic.main.fragment_categories.*
 import tellabsxcomtelindo.android.klikcoaching.ui.detailcategory.DetailCategoryActivity
 import tellabsxcomtelindo.android.klikcoaching.R
-import tellabsxcomtelindo.android.klikcoaching.utils.DUmmyData.menusCategory
+import tellabsxcomtelindo.android.klikcoaching.utils.DummyData.menusCategory
 import tellabsxcomtelindo.android.klikcoaching.utils.rvGridDecortion
 
 

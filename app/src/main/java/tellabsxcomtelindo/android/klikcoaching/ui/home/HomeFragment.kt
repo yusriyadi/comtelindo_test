@@ -13,10 +13,9 @@ import com.xwray.groupie.Section
 import com.xwray.groupie.kotlinandroidextensions.GroupieViewHolder
 import kotlinx.android.synthetic.main.fragment_home.*
 import tellabsxcomtelindo.android.klikcoaching.R
-import tellabsxcomtelindo.android.klikcoaching.data.*
 import tellabsxcomtelindo.android.klikcoaching.ui.coursedetail.CourseDetailActivity
-import tellabsxcomtelindo.android.klikcoaching.utils.DUmmyData.coursesRecomeded
-import tellabsxcomtelindo.android.klikcoaching.utils.DUmmyData.newComerCource
+import tellabsxcomtelindo.android.klikcoaching.utils.DummyData.coursesRecomeded
+import tellabsxcomtelindo.android.klikcoaching.utils.DummyData.newComerCource
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
 

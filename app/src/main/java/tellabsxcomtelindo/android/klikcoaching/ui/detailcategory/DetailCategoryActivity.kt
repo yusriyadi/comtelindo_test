@@ -14,7 +14,7 @@ import com.xwray.groupie.GroupieViewHolder
 import kotlinx.android.synthetic.main.activity_detail_category.*
 import tellabsxcomtelindo.android.klikcoaching.R
 import tellabsxcomtelindo.android.klikcoaching.ui.coursedetail.CourseDetailActivity
-import tellabsxcomtelindo.android.klikcoaching.utils.DUmmyData
+import tellabsxcomtelindo.android.klikcoaching.utils.DummyData
 import tellabsxcomtelindo.android.klikcoaching.utils.loadImageFromDrawable
 
 
@@ -39,7 +39,7 @@ class DetailCategoryActivity : AppCompatActivity() {
         }
 
 
-        DUmmyData.completeCourse.forEach {
+        DummyData.completeCourse.forEach {
             groupAdapter.add(
                 ItemDetailCategoryAdapter(
                     it

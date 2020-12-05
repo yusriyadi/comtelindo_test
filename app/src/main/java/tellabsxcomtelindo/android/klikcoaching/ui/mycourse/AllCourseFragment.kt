@@ -9,12 +9,11 @@ import com.google.gson.Gson
 import com.xwray.groupie.ExpandableGroup
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
-import com.xwray.groupie.Section
 import kotlinx.android.synthetic.main.fragment_all_course.*
 import tellabsxcomtelindo.android.klikcoaching.R
 import tellabsxcomtelindo.android.klikcoaching.data.Courses
 import tellabsxcomtelindo.android.klikcoaching.ui.coursedetail.CourseDetailActivity
-import tellabsxcomtelindo.android.klikcoaching.utils.DUmmyData
+import tellabsxcomtelindo.android.klikcoaching.utils.DummyData
 
 
 data class HeaderAndCourse(val title: String, val courses: List<Courses>)
@@ -33,13 +32,13 @@ class AllCourseFragment : Fragment(R.layout.fragment_all_course) {
             val data = mutableListOf<Courses>()
             for (j in 0..2) {
                 if(j %2 ==0){
-                    data.add(DUmmyData.completeCourse[(5..9).random()])
+                    data.add(DummyData.completeCourse[(5..9).random()])
                 }
                 else{
-                    data.add(DUmmyData.completeCourse[(0..4).random()])
+                    data.add(DummyData.completeCourse[(0..4).random()])
                 }
             }
-           dataDummy.add(HeaderAndCourse(DUmmyData.menusCategory[i].title, data))
+           dataDummy.add(HeaderAndCourse(DummyData.menusCategory[i].title, data))
         }
 
         dataDummy.forEach {datanya->

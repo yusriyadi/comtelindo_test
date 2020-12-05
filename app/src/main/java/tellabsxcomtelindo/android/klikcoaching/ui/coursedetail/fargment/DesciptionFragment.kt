@@ -2,11 +2,9 @@ package tellabsxcomtelindo.android.klikcoaching.ui.coursedetail.fargment
 
 import android.os.Bundle
 import android.os.CountDownTimer
-import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.github.ajalt.timberkt.d
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.Section
 import com.xwray.groupie.kotlinandroidextensions.GroupieViewHolder
@@ -14,13 +12,9 @@ import kotlinx.android.synthetic.main.activity_course_detail.*
 import kotlinx.android.synthetic.main.fragment_desciption.*
 import tellabsxcomtelindo.android.klikcoaching.R
 import tellabsxcomtelindo.android.klikcoaching.ui.coursedetail.CourseDetailActivity
-import tellabsxcomtelindo.android.klikcoaching.ui.detailcategory.DetailCategoryActivity
-import tellabsxcomtelindo.android.klikcoaching.ui.home.MainActivity
-import tellabsxcomtelindo.android.klikcoaching.utils.DUmmyData
+import tellabsxcomtelindo.android.klikcoaching.utils.DummyData
 import tellabsxcomtelindo.android.klikcoaching.utils.formatRupiah
 import java.util.concurrent.TimeUnit
-import kotlin.concurrent.timer
-import kotlin.concurrent.timerTask
 
 
 class DesciptionFragment : Fragment(R.layout.fragment_desciption) {
@@ -33,7 +27,7 @@ class DesciptionFragment : Fragment(R.layout.fragment_desciption) {
         super.onViewCreated(view, savedInstanceState)
 
         val id = (activity as CourseDetailActivity).idCourse
-        val data = DUmmyData.completeCourse.filter { it.id == id.toInt() }[0]
+        val data = DummyData.completeCourse.filter { it.id == id.toInt() }[0]
         tvDeskripsi.text = data.description
 
 
@@ -61,7 +55,7 @@ class DesciptionFragment : Fragment(R.layout.fragment_desciption) {
                     )
                 )
             }
-            mainGroupAdapter.add(Section(ItemAuthorSection(DUmmyData.author[id.toInt()].name.toString())))
+            mainGroupAdapter.add(Section(ItemAuthorSection(DummyData.author[id.toInt()].name.toString())))
         } else {
 
 
@@ -95,7 +89,7 @@ class DesciptionFragment : Fragment(R.layout.fragment_desciption) {
                 tvDurasi.text = "19.00 - 20.00"
             }
 
-            mainGroupAdapter.add(Section(ItemAuthorSection(DUmmyData.author[id.toInt()].name.toString())))
+            mainGroupAdapter.add(Section(ItemAuthorSection(DummyData.author[id.toInt()].name.toString())))
 
 
             mainGroupAdapter.add(Section(ItemSectionSyaratKetentuan()))

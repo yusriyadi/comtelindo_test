@@ -4,7 +4,7 @@ import tellabsxcomtelindo.android.klikcoaching.R
 import tellabsxcomtelindo.android.klikcoaching.data.*
 import tellabsxcomtelindo.android.klikcoaching.ui.kategori.CategoryMenus
 
-object DUmmyData {
+object DummyData {
     val coursesRecomeded = mutableListOf<Courses>()
     val newComerCource = mutableListOf<Courses>()
     val completeCourse = mutableListOf<Courses>()
