@@ -1,9 +1,8 @@
-package tellabsxcomtelindo.android.klikcoaching.ui.mycourse
+package tellabsxcomtelindo.android.klikcoaching.ui.courseplayer
 
 import com.xwray.groupie.kotlinandroidextensions.GroupieViewHolder
 import com.xwray.groupie.kotlinandroidextensions.Item
 import kotlinx.android.synthetic.main.item_row_content.view.*
-import kotlinx.android.synthetic.main.item_section_content.view.*
 import tellabsxcomtelindo.android.klikcoaching.R
 
 class ItemSectionCourseAdapter (val title : String): Item(){

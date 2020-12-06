@@ -2,12 +2,9 @@ package tellabsxcomtelindo.android.klikcoaching.utils
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
-import androidx.fragment.app.FragmentManager
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import tellabsxcomtelindo.android.klikcoaching.ui.coursedetail.fargment.DesciptionFragment
-import tellabsxcomtelindo.android.klikcoaching.ui.coursedetail.fargment.UlasanFragment
-import tellabsxcomtelindo.android.klikcoaching.ui.courseplayer.ContentFragment
-import tellabsxcomtelindo.android.klikcoaching.ui.courseplayer.DiscussionFragment
+import tellabsxcomtelindo.android.klikcoaching.ui.courseplayer.fragment.ContentFragment
+import tellabsxcomtelindo.android.klikcoaching.ui.courseplayer.fragment.DiscussionFragment
 
 class ViewPagerAdapterTabsContetnt(fm: FragmentActivity) : FragmentStateAdapter(fm) {
 
