@@ -1,13 +1,18 @@
 package tellabsxcomtelindo.android.klikcoaching.utils
 
+import androidx.lifecycle.MutableLiveData
 import tellabsxcomtelindo.android.klikcoaching.R
 import tellabsxcomtelindo.android.klikcoaching.data.*
 import tellabsxcomtelindo.android.klikcoaching.ui.kategori.CategoryMenus
+import tellabsxcomtelindo.android.klikcoaching.ui.mycourse.HeaderAndCourse
 
 object DummyData {
     val coursesRecomeded = mutableListOf<Courses>()
     val newComerCource = mutableListOf<Courses>()
     val completeCourse = mutableListOf<Courses>()
+    val dataDummyAllCourse = mutableListOf<HeaderAndCourse>()
+    val dataDummyOfflineCourse = MutableLiveData<MutableList<HeaderAndCourse>>(mutableListOf<HeaderAndCourse>())
+
 
     val category = mutableListOf<String>("Music","Design", "Programming","Automotive","Mechanical","finance")
     val menusCategory = listOf<CategoryMenus>(
@@ -122,6 +127,37 @@ object DummyData {
                     ""
                 )
             )
+        }
+
+
+
+
+        generateOnlineCourse()
+        generateOfflineCourse()
+    }
+
+    private fun generateOfflineCourse() {
+        for (i in 0..0) {
+            val data = mutableListOf<Courses>()
+            for (j in 0..1) {
+                    data.add(completeCourse[(0..4).random()])
+            }
+            val listbaru: HeaderAndCourse = HeaderAndCourse(menusCategory[i].title, data)
+            dataDummyOfflineCourse.postValue(mutableListOf(listbaru))
+        }
+    }
+
+    private fun generateOnlineCourse() {
+        for (i in 0..4) {
+            val data = mutableListOf<Courses>()
+            for (j in 0..2) {
+                if (j % 2 == 0) {
+                    data.add(completeCourse[(5..9).random()])
+                } else {
+                    data.add(completeCourse[(0..4).random()])
+                }
+            }
+            dataDummyAllCourse.add(HeaderAndCourse(menusCategory[i].title, data))
         }
     }
 
