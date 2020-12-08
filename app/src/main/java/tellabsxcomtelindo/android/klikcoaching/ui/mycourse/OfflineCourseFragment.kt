@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.github.ajalt.timberkt.d
 import com.google.gson.Gson
@@ -27,14 +28,26 @@ class OfflineCourseFragment : Fragment(R.layout.fragment_offline_course) {
         super.onViewCreated(view, savedInstanceState)
 
 
+        fetchDatas()
+
+
+        rvOfflineCourse.apply {
+            adapter = groupAdapter
+            layoutManager = LinearLayoutManager(requireContext())
+        }
+
+
+    }
+
+    private fun fetchDatas() {
+
         DummyData.dataDummyOfflineCourse.observe(viewLifecycleOwner, Observer {
-            d{"sssss : $it"}
             groupAdapter.clear()
             it.forEach { datanya ->
                 ExpandableGroup(ExpandableHeaderItemCourse(datanya.title), if (i % 4 == 1) false else true).apply {
                     datanya.courses.forEach {
                         val itemChild = ItemMyCourseAdapter(it) { courseData: Courses ->
-                            Intent(requireContext(), CoursePlayerActivity::class.java).apply{startActivity(this)}
+                            Intent(requireContext(), CoursePlayerActivity::class.java).apply { startActivity(this) }
                         }
                         add(itemChild)
                     }
@@ -45,14 +58,6 @@ class OfflineCourseFragment : Fragment(R.layout.fragment_offline_course) {
 
 
         })
-
-
-        rvOfflineCourse.apply {
-            adapter = groupAdapter
-            layoutManager = LinearLayoutManager(requireContext())
-        }
-
-
     }
 
     companion object {

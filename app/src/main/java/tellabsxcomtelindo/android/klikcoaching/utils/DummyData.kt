@@ -7,8 +7,7 @@ import tellabsxcomtelindo.android.klikcoaching.ui.kategori.CategoryMenus
 import tellabsxcomtelindo.android.klikcoaching.ui.mycourse.HeaderAndCourse
 
 object DummyData {
-    val coursesRecomeded = mutableListOf<Courses>()
-    val newComerCource = mutableListOf<Courses>()
+
     val completeCourse = mutableListOf<Courses>()
     val dataDummyAllCourse = mutableListOf<HeaderAndCourse>()
     val dataDummyOfflineCourse = MutableLiveData<MutableList<HeaderAndCourse>>(mutableListOf<HeaderAndCourse>())
@@ -61,9 +60,6 @@ object DummyData {
         R.drawable.img_workshop,
         R.drawable.img_yellow_decoration
     )
-    init {
-        generateData()
-    }
 
     fun generateData() {
         for (i in 0..9){
@@ -87,56 +83,12 @@ object DummyData {
             )
         }
 
-        for (i in 0..4) {
-            coursesRecomeded.add(
-                Courses(
-                    i,
-                    courseTitle[i],
-                    author[i],
-                    4.8,
-                    "ini merupakan deskripsi penjelasan dari setiap topik pembelajaran. Usahakan selalu lengkapi deskripsi ini. Tidak perlu panjang, yang penting padat, bermakana, tepat sasaran, jelas dan lugas",
-                    (1..3).random().toDouble()*100000.0,
-                    mutableListImage[i],
-                    (0..2).random().toString()+" jam 20 menit",
-                    listOf(
-                        fingerStyleFirstTopic,
-                        fingerStyleSecondTopic
-                    ),
-                    false,
-                    ""
-                )
-            )
-        }
-
-        for (i in 5..9) {
-            newComerCource.add(
-                Courses(
-                    i,
-                    courseTitle[i],
-                    author[i],
-                    4.8,
-                    "ini merupakan deskripsi penjelasan dari setiap topik pembelajaran. Usahakan selalu lengkapi deskripsi ini. Tidak perlu panjang, yang penting padat, bermakana, tepat sasaran, jelas dan lugas",
-                    (1..3).random().toDouble()*100000.0,
-                    mutableListImage[i],
-                    (0..2).random().toString()+" jam 20 menit",
-                    listOf(
-                        fingerStyleFirstTopic,
-                        fingerStyleSecondTopic
-                    ),
-                    true,
-                    ""
-                )
-            )
-        }
-
-
-
-
         generateOnlineCourse()
         generateOfflineCourse()
     }
 
     private fun generateOfflineCourse() {
+
         for (i in 0..0) {
             val data = mutableListOf<Courses>()
             for (j in 0..1) {
@@ -148,7 +100,8 @@ object DummyData {
     }
 
     private fun generateOnlineCourse() {
-        for (i in 0..4) {
+        dataDummyAllCourse.clear()
+        for (i in 0..2) {
             val data = mutableListOf<Courses>()
             for (j in 0..2) {
                 if (j % 2 == 0) {

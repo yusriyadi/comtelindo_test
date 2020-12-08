@@ -11,13 +11,28 @@ android {
     buildToolsVersion "30.0.2"
 
     defaultConfig {
-        applicationId "tellabsxcomtelindo.android.klikcoaching"
+        applicationId "tellabsxcomtelindo.android.klikcoaching.dev"
         minSdkVersion 21
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    flavorDimensions "default"
+
+    productFlavors {
+        production {
+            applicationId "tellabsxcomtelindo.android.klikcoaching.release"
+            resValue "string", "app_name", "Klikcoaching.com"
+        }
+        development {
+            applicationId "tellabsxcomtelindo.android.klikcoaching.dev"
+            resValue "string", "app_name", "Klikcoaching.com"
+
+        }
+
     }
 
     buildTypes {
@@ -57,8 +72,14 @@ dependencies {
     implementation 'com.xwray:groupie-kotlin-android-extensions:2.8.1'
 
     //image loader
-    implementation 'com.github.bumptech.glide:glide:4.11.0'
-    kapt 'com.github.bumptech.glide:compiler:4.11.0'
+    implementation ("com.github.bumptech.glide:glide:4.11.0") {
+        exclude group: "com.android.support"
+    }
+    annotationProcessor 'androidx.annotation:annotation:1.1.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
+    implementation ("com.github.bumptech.glide:glide:4.11.0@aar") {
+        transitive = true
+    }
     implementation 'com.google.code.gson:gson:2.8.6'
     //viewpager 2
     implementation "androidx.viewpager2:viewpager2:1.0.0"
@@ -83,5 +104,9 @@ dependencies {
     implementation 'com.afollestad.material-dialogs:core:3.2.1'
     implementation 'com.afollestad.material-dialogs:bottomsheets:3.2.1'
     implementation 'com.afollestad.material-dialogs:lifecycle:3.2.1'
+
+    //image carousel
+    implementation 'com.github.IslamKhSh:CardSlider:1.0.1'
+    implementation 'com.squareup.picasso:picasso:2.71828'
 }
 

@@ -20,11 +20,12 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <VideoView
+            <ImageView
                 android:id="@+id/videoView"
                 android:layout_width="0dp"
                 android:layout_height="150dp"
-                android:foreground="@drawable/img_fingerstyle"
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/img_fingerstyle"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

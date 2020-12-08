@@ -22,12 +22,15 @@ import com.xwray.groupie.GroupieViewHolder
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_register.*
 import kotlinx.android.synthetic.main.layout_bottom_sheet_hobies.*
+import org.koin.android.ext.android.inject
 import tellabsxcomtelindo.android.klikcoaching.R
+import tellabsxcomtelindo.android.klikcoaching.data.PreferencesHelper
 import tellabsxcomtelindo.android.klikcoaching.ui.home.MainActivity
 import tellabsxcomtelindo.android.klikcoaching.ui.login.LoginActivity
 
 class RegisterActivity : AppCompatActivity() {
 
+    lateinit var pref :PreferencesHelper
 
     val listItemHobies = mutableListOf<HobiesAdapter>()
     val hobies = MutableLiveData(
@@ -47,6 +50,7 @@ class RegisterActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
+        pref = PreferencesHelper(this)
         setSupportActionBar(toolbar_register)
         setSpannableToTermTextView()
 
@@ -58,9 +62,11 @@ class RegisterActivity : AppCompatActivity() {
 
 
         btnDaftar.setOnClickListener {
+            pref.saveBoolean(PreferencesHelper.IS_LOGGED_IN, true)
             Intent(this, MainActivity::class.java).apply {
                 startActivity(this)
             }
+            finish()
         }
 
         hobieAdapter.addAll(listItemHobies)
@@ -93,9 +99,9 @@ class RegisterActivity : AppCompatActivity() {
         btnShowPass.setOnClickListener {
             if (showPass) {
                 edtPass.transformationMethod = PasswordTransformationMethod()
-                showPass= false
+                showPass = false
             } else {
-                showPass= true
+                showPass = true
                 edtPass.transformationMethod = HideReturnsTransformationMethod()
             }
         }

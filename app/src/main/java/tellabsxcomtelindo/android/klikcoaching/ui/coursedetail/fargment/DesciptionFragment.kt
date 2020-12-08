@@ -84,7 +84,7 @@ class DesciptionFragment : Fragment(R.layout.fragment_desciption) {
                     }
 
                 }.start()
-
+                textView7.text = "Waktu"
                 tvPrice3.text = "(00:59)"
                 tvDurasi.text = "19.00 - 20.00"
             }

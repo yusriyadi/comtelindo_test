@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.android.synthetic.main.fragment_my_course.*
 import tellabsxcomtelindo.android.klikcoaching.R
+import tellabsxcomtelindo.android.klikcoaching.ui.home.MainActivity
 import tellabsxcomtelindo.android.klikcoaching.utils.ViewPagerAdapterTabsCourse
 
 class MyCourceFragment:Fragment(R.layout.fragment_my_course) {
@@ -15,12 +16,13 @@ class MyCourceFragment:Fragment(R.layout.fragment_my_course) {
 
 
         vpMyCourse.adapter = ViewPagerAdapterTabsCourse(this)
-            TabLayoutMediator(tbMyCourse,vpMyCourse){tab,position->
-                when(position){
+        TabLayoutMediator(tbMyCourse,vpMyCourse){tab,position->
+            when(position){
                     0-> tab.text = "All Courses"
                     else -> tab.text = "Offline Course"
                 }
-            }.attach()
+        }.attach()
+
     }
     companion object{
         @JvmStatic

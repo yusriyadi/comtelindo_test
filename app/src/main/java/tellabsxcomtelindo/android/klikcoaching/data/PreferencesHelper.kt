@@ -9,6 +9,7 @@ class PreferencesHelper(val context: Context){
         val ACCESS_TOKEN_KEY =  "access_token"
         val CHOOSEN_RADIO_ID = "choosen_radio_id"
         val CHOOSEN_RADIO_TEXT = "choosen_radio_text"
+        val IS_LOGGED_IN = "islogin"
     }
 
     private var sharedPref = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)

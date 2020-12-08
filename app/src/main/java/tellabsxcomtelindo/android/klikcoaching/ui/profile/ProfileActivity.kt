@@ -17,10 +17,12 @@ import tellabsxcomtelindo.android.klikcoaching.R
 import tellabsxcomtelindo.android.klikcoaching.data.PreferencesHelper
 
 class ProfileActivity : AppCompatActivity() {
-    val pref: PreferencesHelper by inject()
+    lateinit var pref :PreferencesHelper
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
+        pref = PreferencesHelper(this)
         Glide.with(profileImg).load(R.drawable.ic_profile).centerCrop().circleCrop().into(profileImg)
 
         pref.getString(PreferencesHelper.CHOOSEN_RADIO_TEXT).let {

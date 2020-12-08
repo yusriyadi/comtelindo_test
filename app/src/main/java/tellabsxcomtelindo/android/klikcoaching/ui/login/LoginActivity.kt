@@ -17,16 +17,21 @@ import android.view.WindowManager
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import kotlinx.android.synthetic.main.activity_login.*
+import org.koin.android.ext.android.inject
 import tellabsxcomtelindo.android.klikcoaching.R
+import tellabsxcomtelindo.android.klikcoaching.data.PreferencesHelper
 import tellabsxcomtelindo.android.klikcoaching.ui.home.MainActivity
 import tellabsxcomtelindo.android.klikcoaching.ui.register.RegisterActivity
 
 val isShowsClicked = MutableLiveData<Boolean>(false)
 
 class LoginActivity : AppCompatActivity() {
+    lateinit var pref :PreferencesHelper
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+
+        pref = PreferencesHelper(this)
 
         btnListener()
         setFullScreen()
@@ -41,9 +46,11 @@ class LoginActivity : AppCompatActivity() {
 
 
         btnLogin.setOnClickListener {
+            pref.saveBoolean(PreferencesHelper.IS_LOGGED_IN,true)
             Intent(this,MainActivity::class.java).apply {
                 startActivity(this)
             }
+            finish()
         }
 
     }
